@@ -30,16 +30,28 @@
 		}
 	];
 	let selected = $state(menus[0]);
+	let observerEnabled = $state(false);
+
 	const onSelected = (menu: Menu) => {
 		selected = menu;
+		observerEnabled = false; 
 		const section = document.getElementById(menu.sectionId);
 		section?.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	// 스크롤 시 자동으로 메뉴 선택
 	onMount(() => {
+		const enableObserver = () => {
+			observerEnabled = true;
+		};
+
+		window.addEventListener('wheel', enableObserver, { passive: true });
+		window.addEventListener('touchstart', enableObserver, { passive: true });
+		window.addEventListener('touchmove', enableObserver, { passive: true });
+
 		const observer = new IntersectionObserver(
 			(entries) => {
+				if (!observerEnabled) return;
+
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						const sectionId = entry.target.id;
@@ -51,12 +63,11 @@
 				});
 			},
 			{
-				threshold: 0.5, // 섹션이 50% 보일 때
-				rootMargin: '-80px 0px -20% 0px' // 네비게이션 높이 고려
+				threshold: 0.5,
+				rootMargin: '-80px 0px -20% 0px'
 			}
 		);
 
-		// 모든 섹션 관찰
 		menus.forEach((menu) => {
 			const section = document.getElementById(menu.sectionId);
 			if (section) {
@@ -65,6 +76,9 @@
 		});
 
 		return () => {
+			window.removeEventListener('wheel', enableObserver);
+			window.removeEventListener('touchstart', enableObserver);
+			window.removeEventListener('touchmove', enableObserver);
 			observer.disconnect();
 		};
 	});

@@ -63,7 +63,7 @@
 				alt="logo"
 			/>
 			<div
-				class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black via-black/50 to-transparent"
+				class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-white via-white/50 to-transparent dark:from-black dark:via-black/50"
 			></div>
 		</div>
 
