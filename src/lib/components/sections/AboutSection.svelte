@@ -94,6 +94,18 @@
 							alt="Android_Logo"
 							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
 						/>
+						<img
+							class="size-[3vw]"
+							src="/images/Jetpack_Logo.png"
+							alt="Jetpack_Logo"
+							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+						/>
+						<img
+							class="size-[3vw]"
+							src="/images/JetpackCompose_Logo.svg"
+							alt="JetpackCompose_Logo"
+							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+						/>
 					</div>
 				</div>
 				<div>
