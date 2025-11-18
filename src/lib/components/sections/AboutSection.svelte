@@ -1,56 +1,6 @@
 <script lang="ts">
-	const onLoadIcon = (imageElement: HTMLImageElement) => {
-		const avgColor = getAverageColor(imageElement);
-		const shadowColor = `rgb(${avgColor.r},${avgColor.g},${avgColor.b})`;
-		imageElement.style.filter = `drop-shadow(1mm 1mm 2mm ${shadowColor})`;
-	};
-
-	const getAverageColor = (imageElement: HTMLImageElement) => {
-		const canvas = document.createElement('canvas');
-		const context = canvas.getContext('2d');
-
-		if (!context) {
-			return { r: 0, g: 0, b: 0 };
-		}
-
-		canvas.width = imageElement.naturalWidth || imageElement.offsetWidth || imageElement.width;
-		canvas.height = imageElement.naturalHeight || imageElement.offsetHeight || imageElement.height;
-
-		context.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
-
-		try {
-			const data = context.getImageData(0, 0, canvas.width, canvas.height);
-			const pixels = data.data;
-
-			let r = 0,
-				g = 0,
-				b = 0;
-			let opaquePixelCount = 0;
-
-			for (let i = 0; i < pixels.length; i += 4) {
-				const alpha = pixels[i + 3];
-
-				if (alpha > 0) {
-					r += pixels[i];
-					g += pixels[i + 1];
-					b += pixels[i + 2];
-					opaquePixelCount++;
-				}
-			}
-
-			if (opaquePixelCount === 0) {
-				return { r: 0, g: 0, b: 0 };
-			}
-
-			r = Math.floor(r / opaquePixelCount);
-			g = Math.floor(g / opaquePixelCount);
-			b = Math.floor(b / opaquePixelCount);
-
-			return { r, g, b };
-		} catch (e) {
-			return { r: 0, g: 0, b: 0 };
-		}
-	};
+	import { themeStore } from '$lib/stores/theme.svelte';
+	import Icon from '../common/Icon.svelte';
 </script>
 
 <section id="about" class="relative min-h-screen w-screen">
@@ -81,177 +31,129 @@
 				</div>
 				<div>
 					<h4 class="mb-1 text-xl font-normal opacity-70">Mobile</h4>
-					<div class="flex gap-10">
-						<img
-							class="size-[3vw]"
-							src="/images/Kotlin_Logo.svg"
-							alt="Kotlin_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
+					<div class="flex flex-wrap gap-10">
+						<Icon src="/images/Kotlin_Logo.svg" alt="Kotlin_Logo" url="https://kotlinlang.org/" />
+						<Icon
 							src="/images/Android_Logo.svg"
 							alt="Android_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+							url="https://www.android.com/intl/ko_kr/"
 						/>
-						<img
-							class="size-[3vw]"
+						<Icon
 							src="/images/Jetpack_Logo.png"
 							alt="Jetpack_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+							url="https://developer.android.com/jetpack?hl=ko"
 						/>
-						<img
-							class="size-[3vw]"
+						<Icon
 							src="/images/JetpackCompose_Logo.svg"
 							alt="JetpackCompose_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+							url="https://developer.android.com/compose"
 						/>
 					</div>
 				</div>
 				<div>
 					<h4 class="mb-1 text-xl font-normal opacity-70">Frontend</h4>
-					<div class="flex gap-10">
-						<img
-							class="size-[3vw]"
-							src="/images/JavaScript.svg"
-							alt="JavaScriptLogo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+					<div class="flex flex-wrap gap-10">
+						<Icon
+							src="/images/JavaScript_Logo.svg"
+							alt="JavaScript_Logo"
+							url="https://developer.mozilla.org/ko/docs/Web/JavaScript"
 						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Vue_Logo.svg"
-							alt="VueLogo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Svelte_Logo.svg"
-							alt="Svelte_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
+						<Icon src="/images/Vue_Logo.svg" alt="Vue_Logo" url="https://ko.vuejs.org/" />
 					</div>
 				</div>
 				<div>
 					<h4 class="mb-5 text-xl font-normal opacity-70">Backend</h4>
-					<div class="flex gap-10">
-						<img
-							class="size-[3vw]"
-							src="/images/Java_Logo.svg"
-							alt="Java_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Spring_Logo.svg"
-							alt="Spring_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/MySQL_Logo.svg"
-							alt="MySQL_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
+					<div class="flex flex-wrap gap-10">
+						<Icon src="/images/Java_Logo.svg" alt="Java_Logo" url="https://www.java.com/ko/" />
+						<Icon src="/images/Spring_Logo.svg" alt="Spring_Logo" url="https://spring.io/" />
+						<Icon src="/images/MySQL_Logo.svg" alt="MySQL_Logo" url="https://www.mysql.com/" />
 					</div>
 				</div>
 				<div>
 					<h4 class="mb-5 text-xl font-normal opacity-70">Version Control Tool</h4>
-					<div class="flex gap-10">
-						<img
-							class="size-[3vw]"
-							src="/images/Git.svg"
-							alt="Git"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw] dark:hidden"
-							src="/images/Github.svg"
-							alt="GitHub"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="hidden size-[3vw] dark:block"
-							src="/images/Github_White.svg"
-							alt="GitHub"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/GitLab.svg"
-							alt="GitLab"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
+					<div class="flex flex-wrap gap-10">
+						<Icon src="/images/Git_Logo.svg" alt="Git_Logo" url="https://git-scm.com/" />
+						{#if themeStore.getTheme() == 'light'}
+							<Icon src="/images/Github_Logo.svg" alt="Github_Logo" url="https://github.com/" />
+						{:else}
+							<Icon
+								src="/images/Github_White_Logo.svg"
+								alt="Github_White_Logo"
+								url="https://github.com/"
+							/>
+						{/if}
+						<Icon src="/images/GitLab_Logo.svg" alt="GitLab_Logo" url="https://about.gitlab.com/" />
 					</div>
 				</div>
 				<div>
 					<h4 class="mb-5 text-xl font-normal opacity-70">Collaboration Tool</h4>
-					<div class="flex gap-10">
-						<img
-							class="size-[3vw]"
-							src="/images/Jira.svg"
-							alt="Jira"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+					<div class="flex flex-wrap gap-10">
+						<Icon
+							src="/images/Jira_Logo.svg"
+							alt="Jira_Logo"
+							url="https://www.atlassian.com/ko/software/jira"
 						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Figma.svg"
-							alt="Figma"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+						<Icon
+							src="/images/Figma_Logo.svg"
+							alt="Figma_Logo"
+							url="https://www.figma.com/ko-kr/"
 						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Slack.svg"
-							alt="MySQL_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+						<Icon
+							src="/images/Slack_Logo.svg"
+							alt="Slack_Logo"
+							url="https://slack.com/intl/ko-kr"
 						/>
 					</div>
 				</div>
 
 				<div>
 					<h4 class="mb-5 text-xl font-normal opacity-70">Interested</h4>
-					<div class="flex gap-10">
-						<img
-							class="size-[3vw]"
-							src="/images/ComposeMultiPlatform.svg"
-							alt="MySQL_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+					<div class="flex flex-wrap gap-10">
+						<Icon
+							src="/images/ComposeMultiPlatform_Logo.svg"
+							alt="ComposeMultiPlatform_Logo"
+							url="https://www.jetbrains.com/ko-kr/compose-multiplatform/"
 						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Rust.svg"
-							alt="Rust"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+						{#if themeStore.getTheme() == 'light'}
+							<Icon src="/images/Quarkus_Logo.svg" alt="Quarkus_Logo" url="https://quarkus.io/" />
+						{:else}
+							<Icon
+								src="/images/Quarkus_Reverse_Logo.svg"
+								alt="Quarkus_Reverse_Logo"
+								url="https://quarkus.io/"
+							/>
+						{/if}
+						<Icon
+							src="/images/GraalVM_Logo.svg"
+							alt="GraalVM_Logo"
+							url="https://www.graalvm.org/"
 						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Tauri.svg"
-							alt="Tauri"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
+						<Icon
+							src="/images/PostgresSQL_Logo.svg"
+							alt="PostgresSQL_Logo"
+							url="https://www.postgresql.org/"
 						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Bun.svg"
-							alt="Bun"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Docker.svg"
-							alt="Docker"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Zig.svg"
-							alt="Zig"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
-						<img
-							class="size-[3vw]"
-							src="/images/Servo_Logo.svg"
-							alt="Servo_Logo"
-							onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
-						/>
+						<Icon src="/images/Svelte_Logo.svg" alt="Svelte_Logo" url="https://svelte.dev/" />
+						{#if themeStore.getTheme() == 'light'}
+							<Icon
+								src="/images/Rust_Logo.svg"
+								alt="Rust_Logo"
+								dropShadowColor={{ r: 150, g: 150, b: 150 }}
+								url="https://rust-lang.org/"
+							/>
+						{:else}
+							<Icon
+								src="/images/Rust_Logo.svg"
+								alt="Rust_Logo"
+								dropShadowColor={{ r: 255, g: 255, b: 255 }}
+								url="https://rust-lang.org/"
+							/>
+						{/if}
+						<Icon src="/images/Tauri_Logo.svg" alt="Tauri_Logo" url="https://v2.tauri.app/ko/" />
+						<Icon src="/images/Bun_Logo.svg" alt="Bun_Logo" url="https://bun.com/" />
+						<Icon src="/images/Docker_Logo.svg" alt="Docker_Logo" url="https://www.docker.com/" />
+						<Icon src="/images/Zig_Logo.svg" alt="Zig_Logo" url="https://ziglang.org/ko-KR/" />
+						<Icon src="/images/Servo_Logo.svg" alt="Servo_Logo" url="https://servo.org/" />
 					</div>
 				</div>
 			</div>
