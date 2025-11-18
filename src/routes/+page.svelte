@@ -6,6 +6,7 @@
 	import AboutSection from '$lib/components/sections/AboutSection.svelte';
 	import ProjectsSection from '$lib/components/sections/ProjectsSection.svelte';
 	import ContactSection from '$lib/components/sections/ContactSection.svelte';
+	import MoveToTop from '$lib/components/common/MoveToTop.svelte';
 
 	let menus: Array<Menu> = [
 		{
@@ -34,7 +35,7 @@
 
 	const onSelected = (menu: Menu) => {
 		selected = menu;
-		observerEnabled = false; 
+		observerEnabled = false;
 		const section = document.getElementById(menu.sectionId);
 		section?.scrollIntoView({ behavior: 'smooth' });
 	};
@@ -89,3 +90,4 @@
 <AboutSection />
 <ProjectsSection />
 <ContactSection />
+<MoveToTop topMenu={menus[0]} onclick={onSelected} />
