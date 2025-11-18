@@ -18,6 +18,11 @@
 				<p class="m-5 w-[100px] text-center font-bold">{menu.label}</p>
 			</button>
 		{/each}
+		<a href="https://velog.io/@charlie_moon/posts" target="_blank"
+			><button type="button" class="cursor-pointer border-0 transition-colors">
+				<p class="m-5 w-[100px] text-center font-bold">Blog</p>
+			</button>
+		</a>
 	</div>
 	<ThemeToggle />
 </div>
