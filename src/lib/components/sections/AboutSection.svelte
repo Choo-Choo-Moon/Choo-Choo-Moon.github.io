@@ -36,21 +36,25 @@
 							src="/images/logo/Kotlin_Logo.svg"
 							alt="Kotlin_Logo"
 							url="https://kotlinlang.org/"
+							enableDropShadow={true}
 						/>
 						<Icon
 							src="/images/logo/Android_Logo.svg"
 							alt="Android_Logo"
 							url="https://www.android.com/intl/ko_kr/"
+							enableDropShadow={true}
 						/>
 						<Icon
 							src="/images/logo/Jetpack_Logo.png"
 							alt="Jetpack_Logo"
 							url="https://developer.android.com/jetpack?hl=ko"
+							enableDropShadow={true}
 						/>
 						<Icon
 							src="/images/logo/JetpackCompose_Logo.svg"
 							alt="JetpackCompose_Logo"
 							url="https://developer.android.com/compose"
+							enableDropShadow={true}
 						/>
 					</div>
 				</div>
@@ -61,39 +65,60 @@
 							src="/images/logo/JavaScript_Logo.svg"
 							alt="JavaScript_Logo"
 							url="https://developer.mozilla.org/ko/docs/Web/JavaScript"
+							enableDropShadow={true}
 						/>
-						<Icon src="/images/logo/Vue_Logo.svg" alt="Vue_Logo" url="https://ko.vuejs.org/" />
+						<Icon
+							src="/images/logo/Vue_Logo.svg"
+							alt="Vue_Logo"
+							url="https://ko.vuejs.org/"
+							enableDropShadow={true}
+						/>
 					</div>
 				</div>
 				<div>
 					<h4 class="mb-5 text-xl font-normal opacity-70">Backend</h4>
 					<div class="flex flex-wrap gap-10">
-						<Icon src="/images/logo/Java_Logo.svg" alt="Java_Logo" url="https://www.java.com/ko/" />
-						<Icon src="/images/logo/Spring_Logo.svg" alt="Spring_Logo" url="https://spring.io/" />
-						<Icon src="/images/logo/MySQL_Logo.svg" alt="MySQL_Logo" url="https://www.mysql.com/" />
+						<Icon
+							src="/images/logo/Java_Logo.svg"
+							alt="Java_Logo"
+							url="https://www.java.com/ko/"
+							enableDropShadow={true}
+						/>
+						<Icon
+							src="/images/logo/Spring_Logo.svg"
+							alt="Spring_Logo"
+							url="https://spring.io/"
+							enableDropShadow={true}
+						/>
+						<Icon
+							src="/images/logo/MySQL_Logo.svg"
+							alt="MySQL_Logo"
+							url="https://www.mysql.com/"
+							enableDropShadow={true}
+						/>
 					</div>
 				</div>
 				<div>
 					<h4 class="mb-5 text-xl font-normal opacity-70">Version Control Tool</h4>
 					<div class="flex flex-wrap gap-10">
-						<Icon src="/images/logo/Git_Logo.svg" alt="Git_Logo" url="https://git-scm.com/" />
-						{#if themeStore.getTheme() == 'light'}
-							<Icon
-								src="/images/logo/Github_Logo.svg"
-								alt="Github_Logo"
-								url="https://github.com/"
-							/>
-						{:else}
-							<Icon
-								src="/images/logo/Github_White_Logo.svg"
-								alt="Github_White_Logo"
-								url="https://github.com/"
-							/>
-						{/if}
+						<Icon
+							src="/images/logo/Git_Logo.svg"
+							alt="Git_Logo"
+							url="https://git-scm.com/"
+							enableDropShadow={true}
+						/>
+						<Icon
+							src="/images/logo/Github_Logo.svg"
+							darkSrc="/images/logo/Github_White_Logo.svg"
+							alt="Github_Logo"
+							url="https://github.com/"
+							enableDropShadow={true}
+						/>
 						<Icon
 							src="/images/logo/GitLab_Logo.svg"
 							alt="GitLab_Logo"
 							url="https://about.gitlab.com/"
+							enableDropShadow={true}
 						/>
 					</div>
 				</div>
@@ -104,16 +129,19 @@
 							src="/images/logo/Jira_Logo.svg"
 							alt="Jira_Logo"
 							url="https://www.atlassian.com/ko/software/jira"
+							enableDropShadow={true}
 						/>
 						<Icon
 							src="/images/logo/Figma_Logo.svg"
 							alt="Figma_Logo"
 							url="https://www.figma.com/ko-kr/"
+							enableDropShadow={true}
 						/>
 						<Icon
 							src="/images/logo/Slack_Logo.svg"
 							alt="Slack_Logo"
 							url="https://slack.com/intl/ko-kr"
+							enableDropShadow={true}
 						/>
 					</div>
 				</div>
@@ -125,59 +153,80 @@
 							src="/images/logo/ComposeMultiPlatform_Logo.svg"
 							alt="ComposeMultiPlatform_Logo"
 							url="https://www.jetbrains.com/ko-kr/compose-multiplatform/"
+							enableDropShadow={true}
 						/>
-						{#if themeStore.getTheme() == 'light'}
-							<Icon
-								src="/images/logo/Quarkus_Logo.svg"
-								alt="Quarkus_Logo"
-								url="https://quarkus.io/"
-							/>
-						{:else}
-							<Icon
-								src="/images/logo/Quarkus_Reverse_Logo.svg"
-								alt="Quarkus_Reverse_Logo"
-								url="https://quarkus.io/"
-							/>
-						{/if}
+						<Icon
+							src="/images/logo/Quarkus_Logo.svg"
+							darkSrc="/images/logo/Quarkus_Reverse_Logo.svg"
+							alt="Quarkus_Logo"
+							url="https://quarkus.io/"
+							enableDropShadow={true}
+						/>
 						<Icon
 							src="/images/logo/GraalVM_Logo.svg"
 							alt="GraalVM_Logo"
 							url="https://www.graalvm.org/"
+							enableDropShadow={true}
 						/>
 						<Icon
 							src="/images/logo/PostgresSQL_Logo.svg"
 							alt="PostgresSQL_Logo"
 							url="https://www.postgresql.org/"
+							enableDropShadow={true}
 						/>
-						<Icon src="/images/logo/Svelte_Logo.svg" alt="Svelte_Logo" url="https://svelte.dev/" />
+						<Icon
+							src="/images/logo/Svelte_Logo.svg"
+							alt="Svelte_Logo"
+							url="https://svelte.dev/"
+							enableDropShadow={true}
+						/>
 						{#if themeStore.getTheme() == 'light'}
 							<Icon
 								src="/images/logo/Rust_Logo.svg"
 								alt="Rust_Logo"
-								dropShadowColor={{ r: 150, g: 150, b: 150 }}
 								url="https://rust-lang.org/"
+								dropShadowColor={{ r: 150, g: 150, b: 150 }}
+								enableDropShadow={true}
 							/>
 						{:else}
 							<Icon
 								src="/images/logo/Rust_Logo.svg"
 								alt="Rust_Logo"
-								dropShadowColor={{ r: 255, g: 255, b: 255 }}
 								url="https://rust-lang.org/"
+								dropShadowColor={{ r: 255, g: 255, b: 255 }}
+								enableDropShadow={true}
 							/>
 						{/if}
 						<Icon
 							src="/images/logo/Tauri_Logo.svg"
 							alt="Tauri_Logo"
 							url="https://v2.tauri.app/ko/"
+							enableDropShadow={true}
 						/>
-						<Icon src="/images/logo/Bun_Logo.svg" alt="Bun_Logo" url="https://bun.com/" />
+						<Icon
+							src="/images/logo/Bun_Logo.svg"
+							alt="Bun_Logo"
+							url="https://bun.com/"
+							enableDropShadow={true}
+						/>
 						<Icon
 							src="/images/logo/Docker_Logo.svg"
 							alt="Docker_Logo"
 							url="https://www.docker.com/"
+							enableDropShadow={true}
 						/>
-						<Icon src="/images/logo/Zig_Logo.svg" alt="Zig_Logo" url="https://ziglang.org/ko-KR/" />
-						<Icon src="/images/logo/Servo_Logo.svg" alt="Servo_Logo" url="https://servo.org/" />
+						<Icon
+							src="/images/logo/Zig_Logo.svg"
+							alt="Zig_Logo"
+							url="https://ziglang.org/ko-KR/"
+							enableDropShadow={true}
+						/>
+						<Icon
+							src="/images/logo/Servo_Logo.svg"
+							alt="Servo_Logo"
+							url="https://servo.org/"
+							enableDropShadow={true}
+						/>
 					</div>
 				</div>
 			</div>

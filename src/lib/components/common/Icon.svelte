@@ -1,7 +1,20 @@
 <script lang="ts">
-	const { src, alt, dropShadowColor = null, url = null } = $props();
+	import { themeStore } from '$lib/stores/theme.svelte';
 
+	const {
+		src,
+		darkSrc = null,
+		size = 'size-[clamp(3rem,2vw,3vw)]',
+		alt,
+		enableDropShadow = false,
+		dropShadowColor = null,
+		url = null
+	} = $props();
+	let imageSrc = $state(src);
 	const onLoadIcon = (imageElement: HTMLImageElement) => {
+		if (!enableDropShadow) {
+			return;
+		}
 		let shadowColor;
 		if (dropShadowColor) {
 			shadowColor = `rgb(${dropShadowColor.r},${dropShadowColor.g},${dropShadowColor.b})`;
@@ -59,22 +72,28 @@
 		}
 	};
 
-	const onclick = () => {};
+	$effect(() => {
+		if (themeStore.theme === 'dark' && darkSrc) {
+			imageSrc = darkSrc;
+		} else {
+			imageSrc = src;
+		}
+	});
 </script>
 
 {#if url}
 	<a href={url}>
 		<img
-			class="size-[clamp(3rem,2vw,3vw)]"
-			{src}
+			class={size}
+			src={imageSrc}
 			{alt}
 			onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
 		/>
 	</a>
 {:else}
 	<img
-		class="size-[clamp(3rem,2vw,3vw)]"
-		{src}
+		class={size}
+		src={imageSrc}
 		{alt}
 		onload={(e) => onLoadIcon(e.currentTarget as HTMLImageElement)}
 	/>
