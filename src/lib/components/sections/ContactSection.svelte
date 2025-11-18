@@ -1,6 +1,38 @@
+<script>
+	import { themeStore } from '$lib/stores/theme.svelte';
+	import Icon from '../common/Icon.svelte';
+</script>
+
 <section id="contact" class="flex min-h-screen items-center justify-center">
 	<div class="text-center">
 		<h1 class="mb-8 text-6xl font-bold">Contact</h1>
-		<p class="text-xl">연락처 정보를 추가하세요.</p>
+		<div class="flex flex-col gap-3">
+			<div class="flex items-center gap-3">
+				<Icon
+					src="/images/icon/Email_Icon_Light.svg"
+					darkSrc="/images/icon/Email_Icon_Dark.svg"
+					alt="email icon"
+					size="size-10"
+				/>
+				<p class="text-2xl font-bold">moon3482@naver.com</p>
+			</div>
+			<div class="flex items-center gap-3">
+				<Icon
+					src="/images/icon/Kakao_Icon_Light.svg"
+					darkSrc="/images/icon/Kakao_Icon_Dark.svg"
+					alt="email icon"
+					size="size-10"
+				/>
+				<a href="https://open.kakao.com/o/sZlenibe" target="_blank"
+					><p class="text-2xl font-bold">Kakaotalk OpenChat</p></a
+				>
+			</div>
+			<div class="flex items-center gap-3">
+				<Icon src="/images/logo/LinkedIn_Logo.svg" alt="email icon" size="size-10" />
+				<a href="https://www.linkedin.com/in/chang-kyu-moon-2449b0227/" target="_blank"
+					><p class="text-2xl font-bold">LinkedIn Profile</p></a
+				>
+			</div>
+		</div>
 	</div>
 </section>
