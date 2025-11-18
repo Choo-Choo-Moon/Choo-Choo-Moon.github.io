@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Navigation from './commmon/Navigation.svelte';
+	import Navigation from '../lib/components/common/Navigation.svelte';
 	import type { Menu } from '../types';
 	import HelloSection from '$lib/components/sections/HelloSection.svelte';
 	import AboutSection from '$lib/components/sections/AboutSection.svelte';
