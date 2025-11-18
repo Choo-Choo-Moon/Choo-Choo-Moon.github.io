@@ -32,6 +32,10 @@ class ThemeStore {
 		}
 	}
 
+	getTheme() {
+		return this.theme;
+	}
+
 	setTheme(theme: Theme) {
 		this.theme = theme;
 		this.applyTheme();
