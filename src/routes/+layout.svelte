@@ -6,6 +6,7 @@
 </script>
 
 <svelte:head>
+	<title>Charlie Moon</title>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 {@render children()}
