@@ -20,7 +20,7 @@
 				<Icon
 					src="/images/icon/Kakao_Icon_Light.svg"
 					darkSrc="/images/icon/Kakao_Icon_Dark.svg"
-					alt="email icon"
+					alt="kakaotalk icon"
 					size="size-10"
 				/>
 				<a href="https://open.kakao.com/o/sZlenibe" target="_blank"
@@ -28,9 +28,20 @@
 				>
 			</div>
 			<div class="flex items-center gap-3">
-				<Icon src="/images/logo/LinkedIn_Logo.svg" alt="email icon" size="size-10" />
+				<Icon src="/images/logo/LinkedIn_Logo.svg" alt="linkedin icon" size="size-10" />
 				<a href="https://www.linkedin.com/in/chang-kyu-moon-2449b0227/" target="_blank"
 					><p class="text-2xl font-bold">LinkedIn Profile</p></a
+				>
+			</div>
+			<div class="flex items-center gap-3">
+				<Icon
+					src="/images/logo/Github_Logo.svg"
+					darkSrc="/images/logo/Github_White_Logo.svg"
+					alt="github icon"
+					size="size-10"
+				/>
+				<a href="https://www.github.com/choo-choo-moon" target="_blank"
+					><p class="text-2xl font-bold">Github Profile</p></a
 				>
 			</div>
 		</div>
