@@ -70,7 +70,7 @@
 										><span class=" font-bold underline">{career.companyName}</span></a
 									>
 									- {career.role}
-									{career.joining} ~ {career.termination}
+									<span class="whitespace-nowrap">{career.joining} ~ {career.termination}</span>
 								</li>
 							{/each}
 						</ul>
