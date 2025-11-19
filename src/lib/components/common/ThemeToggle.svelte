@@ -9,7 +9,7 @@
 <button
 	type="button"
 	onclick={toggle}
-	class="flex size-12 items-center justify-center rounded-full border-2 border-gray-300 bg-white transition-all hover:scale-110 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:hover:border-gray-500"
+	class="flex size-[clamp(1rem,10mm,12mm)] shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white transition-all hover:scale-110 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:hover:border-gray-500"
 	aria-label="Toggle theme"
 >
 	{#if themeStore.theme === 'dark'}
