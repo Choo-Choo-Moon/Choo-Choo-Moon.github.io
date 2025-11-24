@@ -16,11 +16,41 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Display environment info
+        run: |
+          echo "=== Environment Information ==="
+          echo "Node version: $(node --version)"
+          echo "Bun version: $(bun --version)"
+          echo "npm version: $(npm --version)"
+          echo "Working directory: $(pwd)"
+          echo "================================"
+
       - name: Install dependencies
-        run: bun install
+        run: |
+          echo "=== Installing dependencies ==="
+          bun install --verbose
+          echo "=== Dependency installation complete ==="
+
+      - name: Display package versions
+        run: |
+          echo "=== Installed Package Versions ==="
+          bun pm ls | grep -E "(vite|svelte|tailwindcss)" || true
+          echo "=================================="
 
       - name: Build
-        run: bun run build
+        run: |
+          echo "=== Starting build process ==="
+          export DEBUG=vite:*
+          bun run build --mode production --logLevel info
+          echo "=== Build complete ==="
+        env:
+          NODE_ENV: production
+
+      - name: Verify build output
+        run: |
+          echo "=== Verifying build output ==="
+          ls -la build/ || echo "Build directory not found!"
+          echo "================================"
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
