@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { themeStore } from '$lib/stores/theme.svelte';
-	import { entryPointStore } from '$lib/stores/entryPoint.svelte';
+	import { themeStore } from '$lib/stores/Theme.svelte';
+	import { entryPointStore } from '$lib/stores/EntryPoint.svelte';
 	import Icon from '../common/Icon.svelte';
 	import type { Career } from '../../../types';
+	import { calculateDuration } from '$lib/util/DateCalculater';
 
 	// 현재 모드에 따라 섹션 표시 여부 결정
 	$: showMobile = !entryPointStore.entryPoint || entryPointStore.entryPoint === 'mobile';
@@ -70,7 +71,12 @@
 										><span class=" font-bold underline">{career.companyName}</span></a
 									>
 									- {career.role}
-									<span class="whitespace-nowrap">{career.joining} ~ {career.termination}</span>
+									<span class="whitespace-nowrap"
+										>{career.joining} ~ {career.termination} ({calculateDuration(
+											career.joining,
+											career.termination
+										)})</span
+									>
 								</li>
 							{/each}
 						</ul>

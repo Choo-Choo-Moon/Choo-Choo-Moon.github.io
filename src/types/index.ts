@@ -13,9 +13,43 @@ export type Career = {
 };
 
 export type Project = {
+	projectType: ProjcetType;
+	role: Array<Role>;
 	title: string;
-	contribute?: Array<string>;
 	description: string;
-	thumbnail: string;
-	images: Array<string>;
+	skills: Array<string>;
+	thumbnail?: string;
+	images?: Array<string>;
+	contribute?: Array<Contributor>;
+	depoloy: Array<Depoloy>;
 };
+
+export enum ProjcetType {
+	Side,
+	Toy,
+	Production
+}
+
+export enum Role {
+	Mobile,
+	Backend,
+	Frontend,
+	Any
+}
+
+export type Contributor = {
+	name: string;
+	aka?: string;
+	thumbnail?: string;
+	url?: string;
+};
+
+export enum Depoloy {
+	Android,
+	iOS,
+	AWS,
+	Azure,
+	GCP,
+	vultr,
+	OnPremise
+}

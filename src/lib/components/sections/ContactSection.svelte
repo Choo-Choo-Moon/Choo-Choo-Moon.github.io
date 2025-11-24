@@ -1,5 +1,5 @@
 <script>
-	import { themeStore } from '$lib/stores/theme.svelte';
+	import { themeStore } from '$lib/stores/Theme.svelte';
 	import Icon from '../common/Icon.svelte';
 </script>
 

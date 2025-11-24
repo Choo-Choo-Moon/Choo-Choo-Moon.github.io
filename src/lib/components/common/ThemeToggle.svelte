@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { themeStore } from '$lib/stores/theme.svelte';
+	import { themeStore } from '$lib/stores/Theme.svelte';
 
 	const toggle = () => {
 		themeStore.toggle();

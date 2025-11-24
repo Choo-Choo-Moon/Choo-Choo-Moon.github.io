@@ -1,5 +1,5 @@
 <script>
-	import { themeStore } from '$lib/stores/theme.svelte.ts';
+	import { themeStore } from '$lib/stores/Theme.svelte';
 	let isDarkMode = $derived(themeStore.theme === 'dark');
 </script>
 
@@ -15,10 +15,18 @@
 		</h1>
 
 		<!-- Logo Image -->
-		<img
-			class=" top-32 z-0 size-[clamp(150px,50vw,250px)] animate-spin [animation-duration:10s] sm:top-40 sm:right-5 sm:size-[clamp(180px,40vw,300px)] md:right-10 md:mr-100 md:size-[clamp(250px,35vw,400px)] lg:right-20 lg:size-[clamp(300px,30vw,500px)]"
-			src={isDarkMode ? '/images/logo/Main_Logo_Light.svg' : '/images/logo/Main_Logo_Dark.svg'}
-			alt="spin main logo"
-		/>
+		{#if isDarkMode}
+			<img
+				class=" top-32 z-0 size-[clamp(150px,50vw,250px)] animate-spin [animation-duration:10s] sm:top-40 sm:right-5 sm:size-[clamp(180px,40vw,300px)] md:right-10 md:mr-100 md:size-[clamp(250px,35vw,400px)] lg:right-20 lg:size-[clamp(300px,30vw,500px)]"
+				src="/images/logo/Main_Logo_Light.svg"
+				alt="spin main logo"
+			/>
+		{:else}
+			<img
+				class=" top-32 z-0 size-[clamp(150px,50vw,250px)] animate-spin [animation-duration:10s] sm:top-40 sm:right-5 sm:size-[clamp(180px,40vw,300px)] md:right-10 md:mr-100 md:size-[clamp(250px,35vw,400px)] lg:right-20 lg:size-[clamp(300px,30vw,500px)]"
+				src="/images/logo/Main_Logo_Dark.svg"
+				alt="spin main logo"
+			/>
+		{/if}
 	</div>
 </section>

@@ -7,6 +7,7 @@
 	import ProjectsSection from './sections/ProjectsSection.svelte';
 	import ContactSection from './sections/ContactSection.svelte';
 	import MoveToTop from './common/MoveToTop.svelte';
+	import Footer from './common/Footer.svelte';
 
 	let menus: Array<Menu> = [
 		{
@@ -64,8 +65,8 @@
 				});
 			},
 			{
-				threshold: 0.5,
-				rootMargin: '-80px 0px -20% 0px'
+				threshold: 0.1,
+				rootMargin: '-80px 0px -30% 0px'
 			}
 		);
 
@@ -91,7 +92,4 @@
 <ProjectsSection />
 <ContactSection />
 <MoveToTop topMenu={menus[0]} onclick={onSelected} />
-<hr class="border-gray-800" />
-<div class="flex h-50 items-center justify-center text-center">
-	<p class="text-gray-600">Copyright 2025. <span class="text-lg font-bold">Moon Chang Kyu</span></p>
-</div>
+<Footer />

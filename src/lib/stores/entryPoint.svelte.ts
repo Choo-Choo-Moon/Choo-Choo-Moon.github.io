@@ -1,4 +1,4 @@
-type EntryPoint = 'mobile' | 'backend' | null;
+type EntryPoint = 'mobile' | 'backend' | 'frontend' | null;
 
 class EntryPointStore {
 	entryPoint = $state<EntryPoint>(null);

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { themeStore } from '$lib/stores/theme.svelte';
+	import { themeStore } from '$lib/stores/Theme.svelte';
 
 	const {
 		src,
 		darkSrc = null,
-		size = 'size-[clamp(3rem,2vw,3vw)]',
+		size = 'size-[clamp(2rem,1vw,1vw)]',
 		alt,
 		enableDropShadow = false,
 		dropShadowColor = null,
