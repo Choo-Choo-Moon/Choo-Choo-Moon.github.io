@@ -2,12 +2,12 @@
 	import type { Project } from '../../../types';
 	import ProjectBadge from './common/ProjectBadge.svelte';
 	import ProjectHeader from './common/ProjectHeader.svelte';
-	import ImageCarousel from '../common/ImageCarousel.svelte';
 	import ProjectDescription from './common/ProjectDescription.svelte';
 	import ContributorsList from './common/ContributorsList.svelte';
 	import RoleBadges from './common/RoleBadges.svelte';
 	import SkillsChips from './common/SkillsChips.svelte';
 	import DeploymentInfo from './common/DeploymentInfo.svelte';
+	import ImageCarousel from '../common/ImageCarousel.svelte';
 
 	let { project }: { project: Project } = $props();
 </script>

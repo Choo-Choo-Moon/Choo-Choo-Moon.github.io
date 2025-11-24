@@ -2,11 +2,11 @@
 	import type { Project } from '../../../types';
 	import ProjectBadge from './common/ProjectBadge.svelte';
 	import ProjectHeader from './common/ProjectHeader.svelte';
-	import ImageCarousel from '../common/ImageCarousel.svelte';
 	import ProjectDescription from './common/ProjectDescription.svelte';
 	import RoleBadges from './common/RoleBadges.svelte';
 	import SkillsChips from './common/SkillsChips.svelte';
 	import DeploymentInfo from './common/DeploymentInfo.svelte';
+	import ImageCarousel from '../common/ImageCarousel.svelte';
 
 	let { project }: { project: Project } = $props();
 </script>
@@ -15,16 +15,6 @@
 	<ProjectBadge projectType={project.projectType} />
 	<ProjectHeader title="LogCash" subtitle="외화거래 일지 작성 애플리케이션" />
 
-	<!-- Thumbnail (Logo for this project) -->
-	{#if project.thumbnail}
-		<div class="mb-6 flex justify-center overflow-hidden rounded-lg">
-			<img
-				src={project.thumbnail}
-				alt="{project.title} logo"
-				class="h-auto max-w-md object-contain"
-			/>
-		</div>
-	{/if}
 
 	<ImageCarousel images={project.images || []} altPrefix={project.title} />
 	<ProjectDescription description={project.description} />

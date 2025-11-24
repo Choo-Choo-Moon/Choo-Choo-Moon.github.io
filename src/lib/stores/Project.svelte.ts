@@ -93,13 +93,14 @@ class ProjectStore {
 			],
 			thumbnail: '/images/project/fantry/fantryLogo.png',
 			images: [
-				'/images/project/smartscoreErp/SmartscoreERP_1.webp',
-				'/images/project/smartscoreErp/SmartscoreERP_2.webp',
-				'/images/project/smartscoreErp/SmartscoreERP_3.webp',
-				'/images/project/smartscoreErp/SmartscoreERP_4.webp',
-				'/images/project/smartscoreErp/SmartscoreERP_5.webp',
-				'/images/project/smartscoreErp/SmartscoreERP_6.webp',
-				'/images/project/smartscoreErp/SmartscoreERP_7.webp'
+				'/images/project/fantry/fantry_main.png',
+				'/images/project/fantry/fantry_product_post.png',
+				'/images/project/fantry/fantry_product_post2.png',
+				'/images/project/fantry/fantry_product_detail.png',
+				'/images/project/fantry/fantry_product_detail2.png',
+				'/images/project/fantry/fantry_payment.png',
+				'/images/project/fantry/fantry_mypage.png',
+				'/images/project/fantry/fantry_admin.png'
 			],
 			depoloy: [Depoloy.OnPremise]
 		}

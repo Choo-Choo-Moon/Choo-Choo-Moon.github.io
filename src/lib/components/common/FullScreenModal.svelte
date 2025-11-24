@@ -27,7 +27,7 @@
 		<!-- Close Button -->
 		<button
 			onclick={onClose}
-			class="fixed top-4 right-4 z-10 rounded-full bg-slate-200/80 p-2 transition-colors hover:bg-slate-300 dark:bg-slate-700/80 dark:hover:bg-slate-600"
+			class="fixed top-4 right-16 z-10 rounded-full bg-slate-200/80 p-2 transition-colors hover:bg-slate-300 dark:bg-slate-700/80 dark:hover:bg-slate-600"
 			aria-label="Close"
 		>
 			<svg

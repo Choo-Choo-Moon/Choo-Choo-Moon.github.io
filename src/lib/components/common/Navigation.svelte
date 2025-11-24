@@ -17,7 +17,7 @@
 </script>
 
 <div
-	class="fixed top-0 z-50 flex h-17 w-full flex-row-reverse flex-nowrap items-center px-4 md:flex-row md:justify-end"
+	class="fixed top-0 z-50 flex h-17 w-full flex-row-reverse flex-nowrap items-center px-16 md:flex-row md:justify-end"
 >
 	<!-- Desktop Menu -->
 	<div class="hidden flex-nowrap md:flex">
