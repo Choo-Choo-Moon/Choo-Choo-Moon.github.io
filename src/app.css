@@ -1,3 +1,25 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+	body {
+		@apply bg-white text-black dark:bg-black dark:text-white;
+	}
+}
+
+@layer utilities {
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@theme {
+	--color-custom-jino-blue: #57b6d6;
+}

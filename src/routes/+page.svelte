@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import { entryPointStore } from '$lib/stores/EntryPoint.svelte';
+	import Portfolio from '$lib/components/Portfolio.svelte';
+
+	// 전체 포트폴리오 모드 (null = 모두 표시)
+	entryPointStore.entryPoint = null;
+</script>
+
+<Portfolio />

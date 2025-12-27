@@ -16,11 +16,52 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Display environment info
+        run: |
+          echo "=== Environment Information ==="
+          echo "Node version: $(node --version)"
+          echo "Bun version: $(bun --version)"
+          echo "npm version: $(npm --version)"
+          echo "Working directory: $(pwd)"
+          echo "================================"
+
       - name: Install dependencies
-        run: bun install
+        run: |
+          echo "=== Installing dependencies ==="
+          bun install --verbose
+          echo "=== Dependency installation complete ==="
+
+      - name: Display package versions
+        run: |
+          echo "=== Installed Package Versions ==="
+          bun pm ls | grep -E "(vite|svelte|tailwindcss)" || true
+          echo "=================================="
 
       - name: Build
-        run: bun run build
+        run: |
+          echo "=== Starting build process ==="
+          bun run build 2>&1 | tee build.log
+          BUILD_EXIT_CODE=${PIPESTATUS[0]}
+          if [ $BUILD_EXIT_CODE -ne 0 ]; then
+            echo "❌ Build failed with exit code: $BUILD_EXIT_CODE"
+            echo "=== Last 50 lines of build output ==="
+            tail -50 build.log
+            exit $BUILD_EXIT_CODE
+          fi
+          echo "✅ Build complete ==="
+        env:
+          NODE_ENV: production
+          VITE_MOBILE_CAREER_DATA: ${{ secrets.MOBILE_CAREER_DATA }}
+          VITE_BACKEND_CAREER_DATA: ${{ secrets.BACKEND_CAREER_DATA }}
+          VITE_PRODUCTION_PROJECTS: ${{ secrets.PRODUCTION_PROJECTS }}
+          VITE_SIDE_PROJECTS: ${{ secrets.SIDE_PROJECTS }}
+          VITE_TOY_PROJECTS: ${{ secrets.TOY_PROJECTS }}
+
+      - name: Verify build output
+        run: |
+          echo "=== Verifying build output ==="
+          ls -la build/ || echo "Build directory not found!"
+          echo "================================"
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
